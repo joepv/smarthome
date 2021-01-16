@@ -198,6 +198,36 @@ fibaro.alert("push", {2, 20}, "Hi, it works for 2 users!")
 
 ### LUA: control ledstrip with native Hue API
 
+Set the correct brightness and color with the Hue App and read the data with the official API:
+
+```
+http://192.168.2.1/api/<apikey>/lights/
+http://192.168.2.1/api/<apikey>/lights/4
+```
+
+```json
+"4": {
+    "state": {
+        "on": true,
+        "bri": 114,
+        "hue": 5046,
+        "sat": 198,
+        "effect": "none",
+        "xy": [
+            0.5428,
+            0.3836
+        ],
+        "ct": 500,
+        "alert": "none",
+        "colormode": "xy",
+        "mode": "homeautomation",
+        "reachable": true
+    },
+...
+```
+
+🌎 [Official Hue API documentation](https://developers.meethue.com/develop/hue-api/lights-api/)
+
 ```lua
 function controlLedstrip(id, state, bri, hue, sat)
     local tcpTimeout  = 2000
